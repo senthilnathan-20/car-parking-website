@@ -1,0 +1,647 @@
+/* --- Designed by Gábor Parlag --- */
+/* --- contact: pebbleperspective@gmail.com --- */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+:root {
+    --bgColor: rgba(21, 30, 38, 0.1);
+    --offWhite: rgba(239, 240, 235, 1);
+    --lighGrey: rgba(197, 193, 187, 1);
+    --darkGrey: rgb(72, 78, 74);
+    --fontColor: rgba(42, 42, 42, 1);
+    --contrast: rgb(234, 203, 72);
+    --contrast2: rgba(234, 203, 72, 0.6);
+    --contrast3: rgba(220, 183, 15, 1);
+    --contrast4: rgba(234, 203, 72, 0.4);
+    --contrastAlter: rgb(35, 122, 87);
+}
+
+body {
+    background-color: var(--offWhite);
+    font-family: 'Karla', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
+}
+
+#siteContent {
+    padding: 3px;
+    max-width: 1111px;
+    height: 100%;
+    border-radius: 3px;
+    /* display: flex;
+    justify-content: center; */
+    margin: 0px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.11);
+    background-color: rgb(250, 250, 250);
+    /* background-image: linear-gradient(127deg, rgba(91, 129, 132, 1), rgba(91, 129, 132, 0.7), rgba(91, 129, 132, 0.1)); */
+    background-image: linear-gradient(111deg, white, white, white, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1));
+}
+
+#lang {
+    position: fixed;
+    bottom: 11px;
+    right: 22px;
+    font-weight: 400;
+    width: 88px;
+    padding: 7px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.81);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+header {
+    min-height: 88px;
+    max-height: 55vh;
+    /* background-image: url(img/layered-waves-haikei.svg); */
+    /* background-size:cover; */
+    background-image: linear-gradient(111deg, var(--contrast), var(--contrast3), var(--contrast3), var(--contrast2), var(--contrast2), var(--contrast));
+    padding: 11px 11px 0px 11px;
+    border-bottom: 11px solid var(--contrast);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#lang a{
+    text-decoration: none;
+    color: var(--fontColor);
+}
+
+#lang a:hover {
+    text-decoration: underline;
+    color: var(--fontColor);
+}
+
+#pLogo {
+    position: relative;
+    top: -15px;
+    left: -15px;
+}
+
+h1 {
+    /* display: inline-block; */
+    float: right;
+    /* font-family: 'Karla', sans-serif; */
+    /* font-family: 'Neuton', serif; */
+    /* font-family: 'Gruppo', cursive; */
+    font-family: 'MuseoModerno', serif, sans-serif;
+    /* font-family: 'Volkhov', serif; */
+    font-weight: 300;
+    color: var(--fontColor);
+    text-align: right;
+    text-shadow: 2px 2px 7px var(--offWhite);
+    align-items: flex-end;
+    border-bottom: 2.2px solid var(--fontColor);
+    border-top: 2.2px solid var(--fontColor);
+}
+
+h1 a {
+    color: inherit;
+    text-align: right;
+    text-decoration: none;
+}
+
+#titleTag {
+    padding: 0px 3px;
+    text-align: right;
+    font-size: 0.92rem;
+    float: right;
+    font-weight: 300;
+}
+
+/* 
+#titleTag a {
+   color: var(--fontColor);
+   font-weight: 400;
+}
+
+#titleTag a:hover {
+    color: var(--contrastAlter);
+    margin: unset;
+ } */
+
+#titleIco {
+    opacity: 77%;
+    text-shadow: 2px 2px 7px var(--offWhite);
+    width: 44px;
+    height: 44px;
+}
+
+/* --- Horizontal menu start--- */
+
+#mainNav {
+    /* mask-image: linear-gradient(90deg, var(--contrastAlter) 0%, #ffffff 25%, #ffffff 75%, var(--contrastAlter) 100%); */
+    margin: 0 auto;
+    display: flex;
+    background: linear-gradient(180deg, white 0%, white 60%, var(--offWhite) 100%);
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#mainNav ul {
+    text-align: center;
+    padding: 11px;
+    float: left;
+}
+
+#mainNav ul li {
+    display: inline-block;
+    border-right: 1px dotted var(--fontColor);
+}
+
+#mainNav ul li:last-child {
+    border-right: none;
+}
+
+#mainNav ul li a {
+    padding: 2px 11px;
+    margin-right: 4px;
+    color: var(--fontColor);
+    text-decoration: none;
+    display: block;
+    font-size: 1.21rem;
+
+}
+
+#mainNav ul li a:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--contrastAlter);
+}
+
+/* --- Horizontal menu ends--- */
+
+
+
+/* --- Hamburger menu starts --- */
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    left: 0 !important;
+}
+
+/* .menu__btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+} */
+
+.menu__btn {
+    position: relative;
+    top: 7px;
+    left: 7px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 2;
+    /* background-color: var(--offWhite); */
+    /* background: linear-gradient(180deg, white 0%, white 60%, var(--offWhite) 100%); */
+    padding: 22px 0px;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--darkGrey);
+    transition-duration: .25s;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: absolute;
+    /* top: 121px; */
+    left: -100%;
+    width: 281px;
+    /* height: 100%; */
+    margin: 0;
+    padding: 88px 0px 66px;
+    list-style: none;
+    /* background-color: #ECEFF1; */
+    background: linear-gradient(180deg, white 0%, white 60%, var(--offWhite) 100%);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+    z-index: 1;
+}
+
+.menu__item {
+    display: block;
+    padding: 11px 4px;
+    color: var(--fontColor);
+    font-size: 1.21rem;
+    text-decoration: none;
+    transition-duration: .25s;
+    border-bottom: 1px dotted var(--darkGrey);
+    margin: 7px 11px;
+}
+
+.menu__item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--contrastAlter);
+    text-decoration: none;
+}
+
+/* --- Hamburger menu ends --- */
+
+
+main {
+    padding: 1px;
+}
+
+/* --- Booking form starts --- */
+#bookingForm {
+    background-image: url(img/airport_guy_waiting.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 505px;
+}
+
+#booking {
+    border: 3px solid var(--offWhite);
+    /* background-color: var(--offWhite); */
+    background: linear-gradient(180deg, var(--offWhite) 0%, var(--offWhite) 60%, var(--contrast2) 100%);
+    margin: 0px auto;
+    border-radius: 11px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+#bookingButton {
+    padding: 4px 19px;
+    margin-left: 22px;
+    color: var(--fontColor);
+    text-decoration: none;
+    display: block;
+    font-size: 1.21rem;
+    font-weight: bold;
+    align-self: center;
+    text-transform: uppercase;
+    border: 2px solid var(--contrast3);
+    border-radius: 22px;
+    background-color: var(--contrast);
+    background: linear-gradient(180deg, var(--contrast) 0%, var(--contrast2) 60%, var(--contrast2) 100%);
+    text-shadow: 2px 2px 7px var(--offWhite);
+    box-shadow: 2px 2px 7px var(--lighGrey);
+
+}
+
+h2 {
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 1.81rem;
+    /* font-family: 'Neuton', serif; */
+    /* text-transform: uppercase; */
+    background: linear-gradient(180deg, var(--contrast) 0%, var(--contrast2) 60%, var(--contrast4) 100%);
+    /* background-color: var(--contrast4); */
+    padding: 7px;
+    border-radius: 5px;
+    /* text-shadow: 3px 3px 7px var(--contrast4); */
+}
+
+.btn-primary {
+    border: 1px solid var(--fontColor);
+    box-shadow: 2px 2px 6px rgb(51, 51, 51);
+    background-color: var(--contrastAlter);
+    font-weight: bold;
+}
+
+.btn-primary:active {
+    border: 1px solid var(--fontColor);
+    background-color: var(--contrast);
+    color: var(--fontColor);
+    font-weight: bold;
+}
+
+
+.btn-primary:hover {
+    border: 1px solid var(--fontColor);
+    background-color: var(--contrast);
+    color: var(--fontColor);
+    font-weight: bold;
+}
+
+/* --- Booking form ends --- */
+
+/* --- Card starts --- */
+
+.wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 44px 0px;
+}
+
+.container-fostrap {
+    display: table-cell;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.fostrap-logo {
+    width: 100px;
+    margin-bottom: 11px
+}
+
+.card {
+    display: block;
+    /* margin-bottom: 11px; */
+    /* line-height: 1.42857143; */
+    /* background-color: var(--offWhite); */
+    background: linear-gradient(180deg, white 66%, var(--offWhite) 81%, var(--contrast2) 100%);
+    border: 2px solid white;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .25s;
+    margin-top: 11px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-card {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    display: block;
+    overflow: hidden;
+}
+
+.img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all .25s ease;
+}
+
+.card-content {
+    padding: 22px;
+    text-align: left;
+}
+
+.card-title {
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 1.65rem;
+    color: var(--fontColor);
+}
+
+.card-title a {
+    color: var(--fontColor);
+    text-decoration: none !important;
+}
+
+.pCard {
+    font-size: 1.01rem;
+    line-height: 1.71rem;
+}
+
+.card-read-more a {
+    text-decoration: none !important;
+    padding: 11px;
+    font-weight: bold;
+    color: var(--fontColor);
+    background-image: linear-gradient(180deg, var(--contrast) 0%, var(--contrast2) 60%, var(--contrast4) 100%);
+}
+
+.card-read-more a:hover {
+    color: var(--fontColor);
+    background-image: linear-gradient(180deg, var(--contrast4) 0%, var(--contrast2) 60%, var(--contrast) 100%);
+}
+
+
+
+
+
+/* .cardImg {
+    width: 256px;
+    height: 170.8px;
+    margin: 7px;
+} */
+
+/* --- Card starts --- */
+
+p {
+    padding: 11px 33px;
+}
+
+/* .ico {
+    width: 32px;
+} */
+
+
+footer {
+    background-image: linear-gradient(180deg, white 7%, var(--offWhite) 77%);
+    /* background-color: var(--contrastAlter); */
+    padding: 33px 33px 55px;
+    border-top: 2px solid var(--offWhite);
+}
+
+.footerItem {
+    padding: 11px;
+    /* margin-left: 22px; */
+}
+
+#footerNav {
+    list-style-type: none;
+    /* margin-left: 22px; */
+
+    border-left: 1px dotted var(--fontColor);
+    line-height: 1.81rem;
+    color: var(--contrastAlter);
+}
+
+/* #footerNav a { */
+footer a {
+    color: var(--contrastAlter);
+    text-decoration: none;
+}
+
+#footerNav a {
+
+    padding: 3px 7px;
+}
+
+
+footer a:hover {
+    color: var(--contrastAlter);
+    text-decoration: underline;
+
+}
+
+#footerNav a:hover {
+    color: var(--contrastAlter);
+    text-decoration: none;
+    border-right: 1px dotted var(--fontColor);
+}
+
+#copyright {
+    font-size: 0.81rem;
+    float: right;
+    margin-top: 11px;
+}
+
+/* --- Screensize alternatives --- */
+
+/* Extra Large devices (laptops/desktops, 1248px and up) */
+@media only screen and (min-width: 1248px) {
+    h1 {
+        font-size: 3.33rem;
+        /* font-size: 3.33vw; */
+        padding: 0px 22px 7px;
+
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    h1 {
+        /* font-size: 3.3rem; */
+        font-size: 4.2vw;
+        padding: 0px 22px 7px;
+
+    }
+
+    #booking {
+        width: 444px;
+        padding: 22px;
+        top: 50px;
+        opacity: 90%;
+    }
+
+    #mainNav ul {
+        display: flex;
+    }
+
+    .hamburgerMenu {
+        display: none;
+    }
+
+    /* #langLarge {
+        display: block;
+    } */
+
+    /* #langSmall {
+        display: none;
+    } */
+
+    #copyright {
+        font-size: 0.81rem;
+        float: right;
+        margin-top: 11px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 555px) and (max-width: 991px) {
+    h1 {
+        /* font-size: 3.3rem; */
+        font-size: 6.66vw;
+        padding: 0px 11px 5px;
+    }
+
+    #booking {
+        width: 444px;
+        padding: 22px;
+        top: 50px;
+        opacity: 90%;
+    }
+
+    #mainNav ul {
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: block;
+    }
+
+    .menu__box {
+        top: 142px;
+    }
+
+    .card {
+        margin-top: 22px;
+    }
+
+    #copyright {
+        float: none;
+        text-align: center;
+    }
+}
+
+/* Extra small devices (phones, 555px and down) */
+@media screen and (max-width: 555px) {
+    h1 {
+        font-size: 2.4rem;
+        padding: 0px 11px 3px;
+        line-height: 2.5rem;
+    }
+
+    #booking {
+        width: 95vw;
+        padding: 11px;
+        top: 40px;
+        opacity: 92%;
+    }
+
+    #mainNav ul {
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: block;
+    }
+
+    .menu__box {
+        top: 166px;
+    }
+
+    .card {
+        margin-top: 22px;
+    }
+
+    #copyright {
+        float: none;
+        text-align: center;
+    }
+}
